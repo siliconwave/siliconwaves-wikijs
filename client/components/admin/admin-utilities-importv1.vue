@@ -302,7 +302,7 @@ export default {
       gitPassword: '',
       gitUserEmail: '',
       gitUserName: '',
-      gitRepoPath: './data/repo',
+      gitRepoPath: './documents',
       progress: 0,
       successGroups: 0,
       successUsers: 0,
