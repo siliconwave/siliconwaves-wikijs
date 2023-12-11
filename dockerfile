@@ -8,7 +8,7 @@ WORKDIR /app
 #Copy the contents of the 'dev' folder into the container
 COPY . /app/
 
-RUN yarn global add -D  webpack webpack-cli
+#RUN yarn global add -D  webpack webpack-cli
 
 RUN yarn
 
