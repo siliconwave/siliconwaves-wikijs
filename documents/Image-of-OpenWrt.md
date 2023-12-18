@@ -2,7 +2,7 @@
 title: Installing ssh server in Board 
 description: 
 published: true
-date: 2023-12-18T13:07:05.198Z
+date: 2023-12-18T13:08:40.865Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-18T12:54:37.310Z
@@ -40,7 +40,7 @@ dateCreated: 2023-12-18T12:54:37.310Z
     uci set firewall.@rule[-1].target='ACCEPT'
     uci commit firewall
 
-   # firewall for port 80 to access the luci GUI 
+   ### firewall for port 80 to access the luci GUI 
 
       uci add firewall rule
       uci set firewall.@rule[-1].name='Allow-HTTP'
