@@ -2,7 +2,7 @@
 title: Installing ssh server in Board 
 description: 
 published: true
-date: 2023-12-18T12:56:47.431Z
+date: 2023-12-18T13:00:44.238Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-18T12:54:37.310Z
@@ -10,13 +10,15 @@ dateCreated: 2023-12-18T12:54:37.310Z
 
 https://www.dropbox.com/scl/fi/s0d1houfhgteqihj1f59g/openwrt-jh71x0-generic-visionfive2-v1.3b-ext4-sdcard.img?rlkey=ex40vyevffpxxtfdrxyttnfnt&dl=0
 
-# Installing ssh server in Board 
+# Installing ssh server in Board
+ 
 ## 1. Initially, the opkg download path will be incorrect. To override the content, use the following command in :
 
         echo -e 'src/gz openwrt_core https://downloads.openwrt.org/snapshots/packages/riscv64_riscv64/packages/\nsrc/gz openwrt_base https://downloads.openwrt.org/snapshots/packages/riscv64_riscv64/base/\nsrc/gz openwrt_passwall https://downloads.openwrt.org/snapshots/packages/riscv64_riscv64/packages/\nsrc/gz openwrt_passwall_packages https://downloads.openwrt.org/snapshots/packages/riscv64_riscv64/base/' | tee /etc/opkg/distfeeds.conf > /dev/null
 ## 2. Update opkg:
 
        opkg update
+
 ## 3. Install SSH server:
 
        opkg install openssh-server
