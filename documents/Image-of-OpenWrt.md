@@ -2,7 +2,7 @@
 title: Installing ssh server in Board 
 description: 
 published: true
-date: 2023-12-18T13:00:44.238Z
+date: 2023-12-18T13:01:25.478Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-18T12:54:37.310Z
@@ -26,7 +26,7 @@ https://www.dropbox.com/scl/fi/s0d1houfhgteqihj1f59g/openwrt-jh71x0-generic-visi
 
        /etc/init.d/sshd status
 ## 5. Initially, port 22 will point to dropbear, so stop dropbear and restart the SSH server
->     Note :Dropbear is a lightweight SSH server, while OpenSSH has more features than Dropbear. It offers additional options, such as support for SFTP
+> Note :Dropbear is a lightweight SSH server, while OpenSSH has more features than Dropbear. It offers additional options, such as support for SFTP
 {.is-info}
 
 
