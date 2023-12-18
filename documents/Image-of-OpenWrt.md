@@ -2,7 +2,7 @@
 title: Installing ssh server in Board 
 description: 
 published: true
-date: 2023-12-18T13:02:56.613Z
+date: 2023-12-18T13:07:05.198Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-18T12:54:37.310Z
@@ -32,14 +32,15 @@ dateCreated: 2023-12-18T12:54:37.310Z
        /etc/init.d/sshd restart
 ## 6. Update the firewall
 
-- uci add firewall rule
-- uci set firewall.@rule[-1].name='Allow-SSH'
-- uci set firewall.@rule[-1].src='*'
-- uci set firewall.@rule[-1].proto='tcp'
-- uci set firewall.@rule[-1].dest_port='22'
-- uci set firewall.@rule[-1].target='ACCEPT'
-- uci commit firewall
-    # firewall for port 80 to access the luci GUI 
+    uci add firewall rule
+    uci set firewall.@rule[-1].name='Allow-SSH'
+    uci set firewall.@rule[-1].src='*'
+    uci set firewall.@rule[-1].proto='tcp'
+    uci set firewall.@rule[-1].dest_port='22'
+    uci set firewall.@rule[-1].target='ACCEPT'
+    uci commit firewall
+
+   # firewall for port 80 to access the luci GUI 
 
       uci add firewall rule
       uci set firewall.@rule[-1].name='Allow-HTTP'
