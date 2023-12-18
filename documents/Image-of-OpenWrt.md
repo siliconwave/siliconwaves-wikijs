@@ -2,13 +2,11 @@
 title: Installing ssh server in Board 
 description: 
 published: true
-date: 2023-12-18T13:01:25.478Z
+date: 2023-12-18T13:02:56.613Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-18T12:54:37.310Z
 ---
-
-https://www.dropbox.com/scl/fi/s0d1houfhgteqihj1f59g/openwrt-jh71x0-generic-visionfive2-v1.3b-ext4-sdcard.img?rlkey=ex40vyevffpxxtfdrxyttnfnt&dl=0
 
 # Installing ssh server in Board
  
