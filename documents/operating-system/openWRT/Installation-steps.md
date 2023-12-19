@@ -2,14 +2,16 @@
 title: Installation Steps
 description: Generic steps to build StarFive OpenWRT Image
 published: true
-date: 2023-12-19T12:44:03.534Z
+date: 2023-12-19T12:44:49.052Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-19T12:25:52.938Z
 ---
 
 # Steps to build OpenWRT Image
-## Prerequisites
+
+
+ ## Prerequisites
 
     sudo apt update
     sudo apt install build-essential clang flex bison g++ gawk gcc-multilib g++-multilib \
