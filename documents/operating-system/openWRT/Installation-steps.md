@@ -2,7 +2,7 @@
 title: Installation Steps
 description: Generic steps to build StarFive OpenWRT Image
 published: true
-date: 2023-12-19T12:44:49.052Z
+date: 2023-12-19T12:45:28.353Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-19T12:25:52.938Z
@@ -10,15 +10,14 @@ dateCreated: 2023-12-19T12:25:52.938Z
 
 # Steps to build OpenWRT Image
 
-
- ## Prerequisites
+ ### Prerequisites
 
     sudo apt update
     sudo apt install build-essential clang flex bison g++ gawk gcc-multilib g++-multilib \
     gettext git libncurses-dev libssl-dev python3-distutils rsync unzip zlib1g-dev \
     file wget
 
-## Image Build Steps
+### Image Build Steps
 Starfive tech team shared steps to build openWRT image 
 
 https://www.dropbox.com/scl/fi/s06gpwtbifn89rsagdy5o/Compile-and-Install-OpenWrt-on-VisionFive-2_Preliminary.pdf?rlkey=g9xdnfbrw7k8msp6wdlcrh99y&dl=0
