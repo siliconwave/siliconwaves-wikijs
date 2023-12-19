@@ -2,7 +2,7 @@
 title: Steps to Bring up Python Server Debugging Using VS Code
 description: 
 published: true
-date: 2023-12-19T10:35:37.682Z
+date: 2023-12-19T10:36:03.364Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-19T10:32:44.930Z
@@ -61,13 +61,13 @@ dateCreated: 2023-12-19T10:32:44.930Z
         next_number = num1 + num2
     print()
 ## 7. Update the firewall for port 2000:
-    $ uci add firewall rule
-    $ uci set firewall.@rule[-1].name='Allow GDB Server'
-    $ uci set firewall.@rule[-1].src='*'
-    $ uci set firewall.@rule[-1].proto='tcp'
-    $ uci set firewall.@rule[-1].dest_port='2000'
-    $ uci set firewall.@rule[-1].target='ACCEPT'
-    $ uci commit firewal
+     uci add firewall rule
+     uci set firewall.@rule[-1].name='Allow GDB Server'
+     uci set firewall.@rule[-1].src='*'
+     uci set firewall.@rule[-1].proto='tcp'
+     uci set firewall.@rule[-1].dest_port='2000'
+     uci set firewall.@rule[-1].target='ACCEPT'
+     uci commit firewal
 ## 8. Start the debugpy server:
      python3 -m debugpy --wait-for-client --listen 0.0.0.0:2000 add.py
   (Ensure the port number matches the one in the launch.json configuration)
