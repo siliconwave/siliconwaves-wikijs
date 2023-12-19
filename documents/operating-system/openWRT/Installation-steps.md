@@ -1,13 +1,14 @@
 ---
 title: Installation Steps
-description: 
+description: Generic steps to build StarFive OpenWRT Image
 published: true
-date: 2023-12-19T12:41:30.207Z
+date: 2023-12-19T12:44:03.534Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-19T12:25:52.938Z
 ---
 
+# Steps to build OpenWRT Image
 ## Prerequisites
 
     sudo apt update
