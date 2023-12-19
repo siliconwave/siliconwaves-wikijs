@@ -2,7 +2,7 @@
 title: Steps to Bring up Python Server Debugging Using VS Code
 description: 
 published: true
-date: 2023-12-19T10:32:44.930Z
+date: 2023-12-19T10:35:37.682Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-19T10:32:44.930Z
@@ -47,6 +47,7 @@ dateCreated: 2023-12-19T10:32:44.930Z
 ## 6. Write a simple `add.py` Program:
   1. Create a simple `add.py` Python program. 
   2. The program is present on both your RISC V board and your local machine.
+
     n = 10
     num1 = 0
     num2 = 1
@@ -59,7 +60,7 @@ dateCreated: 2023-12-19T10:32:44.930Z
         num1, num2 = num2, next_number
         next_number = num1 + num2
     print()
-7. Update the firewall for port 2000:
+## 7. Update the firewall for port 2000:
     $ uci add firewall rule
     $ uci set firewall.@rule[-1].name='Allow GDB Server'
     $ uci set firewall.@rule[-1].src='*'
@@ -67,12 +68,12 @@ dateCreated: 2023-12-19T10:32:44.930Z
     $ uci set firewall.@rule[-1].dest_port='2000'
     $ uci set firewall.@rule[-1].target='ACCEPT'
     $ uci commit firewal
-8. Start the debugpy server:
-    $ python3 -m debugpy --wait-for-client --listen 0.0.0.0:2000 add.py
-        (Ensure the port number matches the one in the launch.json configuration)
-9. Start Debugging in VS Code:
-    - Press F5 or click Run -> Start Debugging.
-    - The breakpoints will be set in VS Code.
-    - The output will be shown in the RISC-V board terminal and `DEBUG CONSOLE` in vs code.
+## 8. Start the debugpy server:
+     python3 -m debugpy --wait-for-client --listen 0.0.0.0:2000 add.py
+  (Ensure the port number matches the one in the launch.json configuration)
+## 9. Start Debugging in VS Code:
+  - Press F5 or click Run -> Start Debugging.
+  - The breakpoints will be set in VS Code.
+  - The output will be shown in the RISC-V board terminal and `DEBUG CONSOLE` in vs code.
 
 You can now remotely debug your RISC-V code using VS Code. Make sure the IP address, port, and remoteRoot are correctly configured based on your setup.
