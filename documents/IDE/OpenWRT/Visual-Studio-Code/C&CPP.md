@@ -2,13 +2,13 @@
 title: Python
 description: 
 published: true
-date: 2023-12-19T13:01:13.168Z
+date: 2023-12-19T13:02:01.082Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-19T12:57:08.551Z
 ---
 
-
+# Steps to Bring up Python Server Debugging Using VS Code
 ## 1. Install python and pip
      opkg update 
      opkg install python3 python3-pip
