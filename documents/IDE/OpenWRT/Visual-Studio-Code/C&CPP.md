@@ -1,8 +1,8 @@
 ---
-title: Untitled Page
+title: Python
 description: 
 published: true
-date: 2023-12-19T13:00:56.467Z
+date: 2023-12-19T13:01:13.168Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-19T12:57:08.551Z
