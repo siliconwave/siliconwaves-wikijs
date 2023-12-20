@@ -2,7 +2,7 @@
 title: Python
 description: 
 published: true
-date: 2023-12-20T06:31:37.098Z
+date: 2023-12-20T06:36:00.928Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-20T05:16:16.878Z
@@ -38,17 +38,21 @@ Replace the content of launch.json with the provided configuration.
         }
      ]
     }
-2. Remote Debugging
-2.1 Connect to the RISC-V Board via SSH
-Establish an SSH connection to the RISC-V board:
- $ ssh user@<ip address>  
-2.2 Install debugpy
-Install the debugpy library on the RISC-V board:
-$ sudo pip3 install debugpy 
-2.3 Start the debugpy Server
-Start the debugpy server on the RISC-V board:
-$ python3 -m debugpy --wait-for-client --listen 0.0.0.0:3000 executable-file.py 
-2.4 Start Debugging in VS Code
-Press F5 or click Run -> Start Debugging in VS Code.
-Set breakpoints within VS Code.
+# 2. Remote Debugging
+## 2.1 Connect to the RISC-V Board via SSH
+- Establish an SSH connection to the RISC-V board:
+
+      ssh user@<ip address>  
+## 2.2 Install debugpy
+- Install the debugpy library on the RISC-V board:
+
+      sudo pip3 install debugpy 
+## 2.3 Start the debugpy Server
+- Start the debugpy server on the RISC-V board:
+
+      python3 -m debugpy --wait-for-client --listen 0.0.0.0:3000 executable-file.py 
+## 2.4 Start Debugging in VS Code
+- Press F5 or click Run -> Start Debugging in VS Code.
+- Set breakpoints within VS Code.
+
 The output will be displayed in the RISC-V board terminal and at the DEBUG CONSOLE in VS Code.
