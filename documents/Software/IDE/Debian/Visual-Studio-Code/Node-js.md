@@ -2,7 +2,7 @@
 title: Node.js
 description: 
 published: true
-date: 2023-12-20T06:28:42.207Z
+date: 2023-12-20T06:32:38.930Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-20T05:18:33.594Z
@@ -13,7 +13,8 @@ dateCreated: 2023-12-20T05:18:33.594Z
 - Select Run from the top menu.
 - Click "Add Configuration" to create launch.json.
 - Choose Node.js: Attach configuration.
-- Replace the content of launch.json with the provided configuration.
+
+Replace the content of launch.json with the provided configuration.
 
       {
        "version": "0.2.0",
