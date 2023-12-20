@@ -2,7 +2,7 @@
 title: Installation Steps
 description: Generic steps to build StarFive OpenWRT Image
 published: true
-date: 2023-12-19T12:45:28.353Z
+date: 2023-12-20T06:00:44.606Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-19T12:25:52.938Z
