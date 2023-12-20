@@ -2,7 +2,7 @@
 title: Installation Steps
 description: 
 published: true
-date: 2023-12-20T06:58:52.824Z
+date: 2023-12-20T06:59:26.482Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-20T06:12:44.289Z
@@ -26,7 +26,7 @@ Extract the .bz2 file:
 - Click on 'Flash from file' and select the location of the image you extracted:
 
       starfive-jh7110-VF2-[Version].img
-Click 'Flash!' to start the flashing process.
+- Click 'Flash!' to start the flashing process.
 ## Step 4: Insert the SD card and power on.
 ## Step 5: Use the following login credentials:
 - User: user
