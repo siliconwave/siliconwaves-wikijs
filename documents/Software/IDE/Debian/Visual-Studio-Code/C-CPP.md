@@ -2,7 +2,7 @@
 title: C/C++
 description: 
 published: true
-date: 2023-12-20T06:33:23.037Z
+date: 2023-12-20T06:33:55.915Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-20T06:05:24.926Z
@@ -39,7 +39,8 @@ Replace the content of launch.json with the provided configuration.
 ## 1.3 Cross Compilation Using tasks.json
 - Select Terminal -> Configure Tasks.
 - Create a new tasks.json file from the template.
-- Replace the content of tasks.json with the provided configuration.
+
+Replace the content of tasks.json with the provided configuration.
 
       {
       "version": "2.0.0",
