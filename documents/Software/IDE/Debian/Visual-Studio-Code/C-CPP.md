@@ -2,7 +2,7 @@
 title: C/C++
 description: 
 published: true
-date: 2023-12-20T06:23:29.864Z
+date: 2023-12-20T06:33:23.037Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-20T06:05:24.926Z
@@ -17,7 +17,8 @@ dateCreated: 2023-12-20T06:05:24.926Z
 - Select Run from the top menu.
 - Click on "Add Configuration" to create launch.json.
 - Choose C/C++: (gdb) Launch configuration.
-- Replace the content of launch.json with the provided configuration.
+
+Replace the content of launch.json with the provided configuration.
 
       {
        "version": "0.2.0",
