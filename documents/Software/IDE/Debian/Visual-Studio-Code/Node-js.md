@@ -2,7 +2,7 @@
 title: Node.js
 description: 
 published: true
-date: 2023-12-20T06:28:01.638Z
+date: 2023-12-20T06:28:42.207Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-20T05:18:33.594Z
@@ -43,4 +43,5 @@ Update the remoteRoot path with the appropriate Node.js file path on the board.
 ## 2.3 Start Debugging in VS Code
 - Press F5 or click Run -> Start Debugging.
 - Set breakpoints in VS Code.
+
 Observe the output in RISC-V board terminal and DEBUG CONSOLE in VS Code.
