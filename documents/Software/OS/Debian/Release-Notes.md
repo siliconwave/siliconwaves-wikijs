@@ -2,29 +2,41 @@
 title: Release Notes
 description: 
 published: true
-date: 2023-12-20T07:42:43.910Z
+date: 2023-12-28T10:14:46.142Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-20T07:25:59.027Z
 ---
 
 # Release Notes
-- Linux Kernel: 5.15.0 (StarFive kernel tag v3.1.5),
-- U-boot: StarFive uboot tag v3.1.5 ,
-- Debian Snapshot date: 20221225T084846Z (sid)
+
+[Download](https://9ohaxq.ph.files.1drv.com/y4mOJollS_tO1-b_ZawfYc4qAKjAh4mgwfalHTXJ2mGY0Ghbk2jAXcOWkX6RqXR3uhM6pGK10FYew91fNJ7PG_fD2S2_E0iR6BLjeAeyt8Xp9LCGmIzQTMmNdSrVTmikYcGcWS3KYGiA3q-RPnUBQ4-OFdBSiOPHaEyBLg5Xi3sFDM3V7sHy2OiMNr0P1_KNyc85ngHO0tLzld1efrk-6Z5zQ)
+
+-   Linux Kernel: 5.15.0 (StarFive kernel tag v3.1.5),
+-   U-boot: StarFive uboot tag v3.1.5 ,
+-   Debian Snapshot date: 20221225T084846Z (sid)
 
 ## Gnome Wayland Default Windowing System
-- Gnome Wayland serves as a default windowing system right from start of the Release.
+
+-   Gnome Wayland serves as a default windowing system right from start of the Release.
+
 ## Upgrade Note: apt upgrade Avoidance
-- Avoid using apt upgrade to prevent overriding customized mesa and linux-libc-dev versions.
+
+-   Avoid using apt upgrade to prevent overriding customized mesa and linux-libc-dev versions.
+
 ## Generic
-- NVMe PCIe boot image provided; Set QSPI boot mode. (Refer to "Boot Mode Settings").
-- Pink screen overlay issue fixed.
-- Support for resolutions like 2K and 1024x728 are added
+
+-   NVMe PCIe boot image provided; Set QSPI boot mode. (Refer to "Boot Mode Settings").
+-   Pink screen overlay issue fixed.
+-   Support for resolutions like 2K and 1024x728 are added
+
 ## Packages
-- Imagination DDK upgraded from version 1.17 to 1.19
-- Mesa updated from version 21.3.8 to 22.3.5
+
+-   Imagination DDK upgraded from version 1.17 to 1.19
+-   Mesa updated from version 21.3.8 to 22.3.5
+
 ## Miscellaneous
-- Audio devices in Gnome Desktop renamed to "Audio Jack" and "HDMI Audio.
-- Made installation of libicu71 as Default
-- Libreoffice performance improved with GTK3
+
+-   Audio devices in Gnome Desktop renamed to "Audio Jack" and "HDMI Audio.
+-   Made installation of libicu71 as Default
+-   Libreoffice performance improved with GTK3
