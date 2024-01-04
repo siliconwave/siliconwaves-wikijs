@@ -220,8 +220,9 @@
                   span {{$t('common:page.printFormat')}}
                 v-tooltip(bottom)
                   template(v-slot:activator='{ on }')
-                    v-btn(icon, tile, v-on='on', @click='generateQRCode', :aria-label='$t(`common:Generate QR Code`)'): v-icon(:color='showQR ? `primary` : `grey`') mdi-qrcode
-                  span {{$t('common:Generate QR Code')}}
+                    v-btn(icon, tile, v-on='on', @click='generateQRCode', :aria-label='$t(`common:QR Code`)')
+                      v-icon(:color='showQR ? `primary` : `grey`') mdi-qrcode
+                  span {{$t('common:QR Code')}}
                 v-spacer
               <qrcode-vue v-if="showQR" :value="value" :size="size" level="H" class="qr-code" ></qrcode-vue>
           v-flex.page-col-content(
@@ -527,7 +528,7 @@ export default {
         }
       },
       value: '',
-      size: 200,
+      size: 150,
       showQR: false,
       winWidth: 0
     }
