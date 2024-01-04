@@ -218,8 +218,12 @@
                     v-btn(icon, tile, v-on='on', @click='print', :aria-label='$t(`common:page.printFormat`)')
                       v-icon(:color='printView ? `primary` : `grey`') mdi-printer
                   span {{$t('common:page.printFormat')}}
+                v-tooltip(bottom)
+                  template(v-slot:activator='{ on }')
+                    v-btn(icon, tile, v-on='on', @click='generateQRCode', :aria-label='$t(`common:Generate QR Code`)'): v-icon(:color='showQR ? `primary` : `grey`') mdi-qrcode
+                  span {{$t('common:Generate QR Code')}}
                 v-spacer
-
+              <qrcode-vue v-if="showQR" :value="value" :size="size" level="H" class="qr-code" ></qrcode-vue>
           v-flex.page-col-content(
             xs12
             :lg9='tocPosition !== `off`'
@@ -366,6 +370,7 @@ import { get, sync } from 'vuex-pathify'
 import _ from 'lodash'
 import ClipboardJS from 'clipboard'
 import Vue from 'vue'
+import QrcodeVue from 'qrcode.vue'
 
 Vue.component('Tabset', Tabset)
 
@@ -407,7 +412,8 @@ Prism.plugins.toolbar.registerButton('copy-to-clipboard', (env) => {
 export default {
   components: {
     NavSidebar,
-    StatusIndicator
+    StatusIndicator,
+    QrcodeVue
   },
   props: {
     pageId: {
@@ -520,6 +526,9 @@ export default {
           }
         }
       },
+      value: '',
+      size: 200,
+      showQR: false,
       winWidth: 0
     }
   },
@@ -668,6 +677,10 @@ export default {
         })
       }
     },
+    generateQRCode() {
+      this.value = window.location.href
+      this.showQR = !this.showQR
+    },
     pageEdit () {
       this.$root.$emit('pageEdit')
     },
@@ -787,6 +800,11 @@ export default {
       }
     }
   }
+}
+
+.qr-code{
+  text-align: center;
+  padding: 20px;
 }
 
 </style>
