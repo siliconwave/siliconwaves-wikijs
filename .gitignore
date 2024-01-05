@@ -9,13 +9,14 @@ dist
 # Dependency directories
 node_modules
 npm/node_modules
+/vscode
 
 # NPM / Yarn
 .npm
 .node_repl_history
 npm-debug.log*
 .yarn
-
+yarn.lock
 # Generated assets
 /assets
 server/views/master.pug
