@@ -9,7 +9,7 @@ dist
 # Dependency directories
 node_modules
 npm/node_modules
-/vscode
+/.vscode
 
 # NPM / Yarn
 .npm
