@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-app(v-scroll='upBtnScroll', :dark='$vuetify.theme.dark', :class='$vuetify.rtl ? `is-rtl` : `is-ltr`')
+v-app(v-scroll='upBtnScroll', :dark='$vuetify.theme.dark', :class='$vuetify.rtl ? `is-rtl` : `is-ltr`')
     nav-header(v-if='!printView')
     v-navigation-drawer(
       v-if='navMode !== `NONE` && !printView'
@@ -218,13 +218,18 @@
                     v-btn(icon, tile, v-on='on', @click='print', :aria-label='$t(`common:page.printFormat`)')
                       v-icon(:color='printView ? `primary` : `grey`') mdi-printer
                   span {{$t('common:page.printFormat')}}
-                v-tooltip(bottom)
+                v-tooltip(bottom v-if="hasAdminPermission")
                   template(v-slot:activator='{ on }')
                     v-btn(icon, tile, v-on='on', @click='generateQRCode', :aria-label='$t(`common:QR Code`)')
                       v-icon(:color='showQR ? `primary` : `grey`') mdi-qrcode
                   span {{$t('common:QR Code')}}
                 v-spacer
-              <qrcode-vue v-if="showQR" :value="value" :size="size" level="H" class="qr-code" ></qrcode-vue>
+              <div v-if="showQR" class="qr-container">
+                <qrcode-vue :value="value" :size="size" level="H" class="qr-code" ref="qrCode"></qrcode-vue>
+                template(v-if = "showQR")
+                  v-btn(icon, tile, @click='downloadQRCode', :aria-label='$t(`common:Copy`)' class="download-btn")
+                    v-icon(color='gray') mdi-download
+              </div>
           v-flex.page-col-content(
             xs12
             :lg9='tocPosition !== `off`'
@@ -682,6 +687,18 @@ export default {
       this.value = window.location.href
       this.showQR = !this.showQR
     },
+    downloadQRCode() {
+      const qrCodeCanvas = this.$refs.qrCode.$el.querySelector('canvas')
+      if (qrCodeCanvas) {
+        const imgData = qrCodeCanvas.toDataURL('image/jpeg')
+        const link = document.createElement('a')
+        link.href = imgData
+        link.download = 'qrcode.jpeg'
+        link.click()
+      } else {
+        console.error('QR code not found')
+      }
+    },
     pageEdit () {
       this.$root.$emit('pageEdit')
     },
@@ -802,10 +819,40 @@ export default {
     }
   }
 }
-
-.qr-code{
-  text-align: center;
+.qr-container{
+  position: relative;
   padding: 20px;
+  text-align: center;
+  border: 1px solid #9E9E9E;
+  margin-top: 20px;
+
+    .qr-code{
+      text-align: center;
+      display: inline-block;
+      padding-block: 20px;
+    }
+
+    .download-btn{
+      display: none;
+    }
+
+  &:hover{
+    .qr-code{
+      opacity: 0.2;
+      cursor: pointer;
+    }
+
+    .download-btn{
+      display: inline;
+      position: absolute;
+      inset: 0;
+      margin: auto;
+
+      .mdi-download{
+        font-size: 34px;
+      }
+    }
+  }
 }
 
 </style>
