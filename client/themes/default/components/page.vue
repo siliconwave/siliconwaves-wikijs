@@ -225,10 +225,12 @@ v-app(v-scroll='upBtnScroll', :dark='$vuetify.theme.dark', :class='$vuetify.rtl 
                   span {{$t('common:QR Code')}}
                 v-spacer
               <div v-if="showQR" class="qr-container">
-                <qrcode-vue :value="value" :size="size" level="H" class="qr-code" ref="qrCode"></qrcode-vue>
-                template(v-if = "showQR")
-                  v-btn(icon, tile, @click='downloadQRCode', :aria-label='$t(`common:Copy`)' class="download-btn")
-                    v-icon(color='gray') mdi-download
+                <div class="qr-wrap">
+                  <qrcode-vue :value="value" :size="size" level="H" class="qr-code" ref="qrCode"></qrcode-vue>
+                  template(v-if = "showQR")
+                    v-btn(icon, tile, @click='downloadQRCode', :aria-label='$t(`common:Copy`)' class="download-btn")
+                      v-icon(color='gray') mdi-download
+                </div>
               </div>
           v-flex.page-col-content(
             xs12
@@ -820,36 +822,41 @@ export default {
   }
 }
 .qr-container{
-  position: relative;
   padding: 20px;
   text-align: center;
   border: 1px solid #9E9E9E;
   margin-top: 20px;
-
-    .qr-code{
-      text-align: center;
+    .qr-wrap{
+      position: relative;
       display: inline-block;
-      padding-block: 20px;
-    }
 
-    .download-btn{
-      display: none;
-    }
+      .qr-code{
+        text-align: center;
+        margin-block: 20px;
+        transition: 0.2s;
+      }
 
-  &:hover{
-    .qr-code{
-      opacity: 0.2;
-      cursor: pointer;
-    }
+      .download-btn{
+        display: none;
+      }
 
-    .download-btn{
-      display: inline;
-      position: absolute;
-      inset: 0;
-      margin: auto;
+    &:hover{
+      .qr-code{
+        opacity: 0.1;
+      }
 
-      .mdi-download{
-        font-size: 34px;
+      .download-btn{
+        display: inline;
+        position: absolute;
+        inset: 0;
+        margin: auto;
+
+        .mdi-download{
+          font-size: 34px;
+          &.v-icon{
+            color: #222222;
+          }
+        }
       }
     }
   }
