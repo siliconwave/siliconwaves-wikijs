@@ -10,6 +10,12 @@
               v-chip.ml-0.mr-2(label, small).caption ID {{page.id}}
               span /{{page.locale}}/{{page.path}}
           v-spacer
+          template(v-if='page.isApproved')
+            status-indicator.mr-3(positive, pulse)
+            .caption.green--text {{$t('Approved')}}
+          template(v-else)
+            status-indicator.mr-3(negative, pulse)
+            .caption.red--text {{$t('Not Approved')}}
           template(v-if='page.isPublished')
             status-indicator.mr-3(positive, pulse)
             .caption.green--text {{$t('common:page.published')}}

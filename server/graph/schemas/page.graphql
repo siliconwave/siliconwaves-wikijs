@@ -90,6 +90,7 @@ type PageMutation {
     editor: String!
     isPublished: Boolean!
     isPrivate: Boolean!
+    isApproved: Boolean!
     locale: String!
     path: String!
     publishEndDate: Date
@@ -107,6 +108,7 @@ type PageMutation {
     editor: String
     isPrivate: Boolean
     isPublished: Boolean
+    isApproved: Boolean
     locale: String
     path: String
     publishEndDate: Date
@@ -187,6 +189,7 @@ type Page {
   description: String!
   isPrivate: Boolean! @auth(requires: ["write:pages", "manage:system"])
   isPublished: Boolean! @auth(requires: ["write:pages", "manage:system"])
+  isApproved: Boolean! @auth(requires: ["write:pages", "manage:system"])
   privateNS: String @auth(requires: ["write:pages", "manage:system"])
   publishStartDate: Date! @auth(requires: ["write:pages", "manage:system"])
   publishEndDate: Date! @auth(requires: ["write:pages", "manage:system"])
@@ -239,6 +242,7 @@ type PageVersion {
   editor: String!
   isPrivate: Boolean!
   isPublished: Boolean!
+  isApproved: Boolean!
   locale: String!
   pageId: Int!
   path: String!
@@ -277,6 +281,7 @@ type PageListItem {
   contentType: String!
   isPublished: Boolean!
   isPrivate: Boolean!
+  isApproved: Boolean!
   privateNS: String
   createdAt: Date!
   updatedAt: Date!
@@ -311,6 +316,7 @@ type PageConflictLatest {
   createdAt: Date!
   description: String!
   isPublished: Boolean!
+  isApproved: Boolean!
   locale: String!
   path: String!
   tags: [String]

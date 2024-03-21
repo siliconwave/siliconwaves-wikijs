@@ -7,6 +7,7 @@ const state = {
   createdAt: '',
   description: '',
   isPublished: true,
+  isApproved: true,
   locale: 'en',
   path: '',
   publishEndDate: '',

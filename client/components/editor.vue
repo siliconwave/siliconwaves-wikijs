@@ -113,6 +113,10 @@ export default {
       type: Boolean,
       default: true
     },
+    isApproved: {
+      type: Boolean,
+      default: true
+    },
     scriptCss: {
       type: String,
       default: ''
@@ -167,6 +171,7 @@ export default {
       savedState: {
         description: '',
         isPublished: false,
+        isApproved: false,
         publishEndDate: '',
         publishStartDate: '',
         tags: '',
@@ -184,7 +189,7 @@ export default {
     currentPageTitle: sync('page/title'),
     checkoutDateActive: sync('editor/checkoutDateActive'),
     currentStyling: get('page/scriptCss'),
-    isDirty () {
+    isDirty() {
       return _.some([
         this.initContentParsed !== this.$store.get('editor/content'),
         this.locale !== this.$store.get('page/locale'),
@@ -193,6 +198,7 @@ export default {
         this.savedState.description !== this.$store.get('page/description'),
         this.savedState.tags !== this.$store.get('page/tags'),
         this.savedState.isPublished !== this.$store.get('page/isPublished'),
+        this.savedState.isApproved !== this.$store.get('page/isApproved'),
         this.savedState.publishStartDate !== this.$store.get('page/publishStartDate'),
         this.savedState.publishEndDate !== this.$store.get('page/publishEndDate'),
         this.savedState.css !== this.$store.get('page/scriptCss'),
@@ -216,6 +222,7 @@ export default {
     this.$store.set('page/id', this.pageId)
     this.$store.set('page/description', this.description)
     this.$store.set('page/isPublished', this.isPublished)
+    this.$store.set('page/isApproved', this.isApproved)
     this.$store.set('page/publishStartDate', this.publishStartDate)
     this.$store.set('page/publishEndDate', this.publishEndDate)
     this.$store.set('page/locale', this.locale)
@@ -298,6 +305,7 @@ export default {
                 $editor: String!
                 $isPrivate: Boolean!
                 $isPublished: Boolean!
+                $isApproved: Boolean!
                 $locale: String!
                 $path: String!
                 $publishEndDate: Date
@@ -314,6 +322,7 @@ export default {
                     editor: $editor
                     isPrivate: $isPrivate
                     isPublished: $isPublished
+                    isApproved: $isApproved
                     locale: $locale
                     path: $path
                     publishEndDate: $publishEndDate
@@ -344,6 +353,7 @@ export default {
               locale: this.$store.get('page/locale'),
               isPrivate: false,
               isPublished: this.$store.get('page/isPublished'),
+              isApproved: this.$store.get('page/isApproved'),
               path: this.$store.get('page/path'),
               publishEndDate: this.$store.get('page/publishEndDate') || '',
               publishStartDate: this.$store.get('page/publishStartDate') || '',
@@ -402,6 +412,7 @@ export default {
                 $editor: String
                 $isPrivate: Boolean
                 $isPublished: Boolean
+                $isApproved: Boolean
                 $locale: String
                 $path: String
                 $publishEndDate: Date
@@ -419,6 +430,7 @@ export default {
                     editor: $editor
                     isPrivate: $isPrivate
                     isPublished: $isPublished
+                    isApproved: $isApproved
                     locale: $locale
                     path: $path
                     publishEndDate: $publishEndDate
@@ -449,6 +461,7 @@ export default {
               locale: this.$store.get('page/locale'),
               isPrivate: false,
               isPublished: this.$store.get('page/isPublished'),
+              isApproved: this.$store.get('page/isApproved'),
               path: this.$store.get('page/path'),
               publishEndDate: this.$store.get('page/publishEndDate') || '',
               publishStartDate: this.$store.get('page/publishStartDate') || '',
@@ -527,10 +540,11 @@ export default {
         }
       }, 500)
     },
-    setCurrentSavedState () {
+    setCurrentSavedState() {
       this.savedState = {
         description: this.$store.get('page/description'),
         isPublished: this.$store.get('page/isPublished'),
+        isApproved: this.$store.get('page/isApproved'),
         publishEndDate: this.$store.get('page/publishEndDate') || '',
         publishStartDate: this.$store.get('page/publishStartDate') || '',
         tags: this.$store.get('page/tags'),

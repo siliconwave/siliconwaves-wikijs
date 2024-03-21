@@ -42,6 +42,7 @@ module.exports = class Page extends Model {
         title: {type: 'string'},
         description: {type: 'string'},
         isPublished: {type: 'boolean'},
+        isApproved: {type: 'boolean'},
         privateNS: {type: 'string'},
         publishStartDate: {type: 'string'},
         publishEndDate: {type: 'string'},
@@ -146,6 +147,7 @@ module.exports = class Page extends Model {
       editorKey: 'string',
       isPrivate: 'boolean',
       isPublished: 'boolean',
+      isApproved: 'boolean',
       publishEndDate: 'string',
       publishStartDate: 'string',
       contentType: 'string',
@@ -306,6 +308,7 @@ module.exports = class Page extends Model {
       hash: pageHelper.generateHash({ path: opts.path, locale: opts.locale, privateNS: opts.isPrivate ? 'TODO' : '' }),
       isPrivate: opts.isPrivate,
       isPublished: opts.isPublished,
+      isApproved: opts.isApproved,
       localeCode: opts.locale,
       path: opts.path,
       publishEndDate: opts.publishEndDate || '',
@@ -391,6 +394,7 @@ module.exports = class Page extends Model {
     await WIKI.models.pageHistory.addVersion({
       ...ogPage,
       isPublished: ogPage.isPublished === true || ogPage.isPublished === 1,
+      isApproved: ogPage.isApproved === true || ogPage.isApproved === 1,
       action: opts.action ? opts.action : 'updated',
       versionDate: ogPage.updatedAt
     })
@@ -428,6 +432,7 @@ module.exports = class Page extends Model {
       content: opts.content,
       description: opts.description,
       isPublished: opts.isPublished === true || opts.isPublished === 1,
+      isApproved: opts.isApproved === true || opts.isApproved === 1,
       publishEndDate: opts.publishEndDate || '',
       publishStartDate: opts.publishStartDate || '',
       title: opts.title,
@@ -633,6 +638,7 @@ module.exports = class Page extends Model {
       await WIKI.models.pageHistory.addVersion({
         ...ogPage,
         isPublished: ogPage.isPublished === true || ogPage.isPublished === 1,
+        isApproved: ogPage.isApproved === true || ogPage.isApproved === 1,
         action: 'updated',
         versionDate: ogPage.updatedAt
       })
@@ -986,6 +992,7 @@ module.exports = class Page extends Model {
           'pages.description',
           'pages.isPrivate',
           'pages.isPublished',
+          'pages.isApproved',
           'pages.privateNS',
           'pages.publishStartDate',
           'pages.publishEndDate',
@@ -1066,6 +1073,7 @@ module.exports = class Page extends Model {
       },
       isPrivate: page.isPrivate === 1 || page.isPrivate === true,
       isPublished: page.isPublished === 1 || page.isPublished === true,
+      isApproved: page.isApproved === 1 || page.isApproved === true,
       publishEndDate: page.publishEndDate,
       publishStartDate: page.publishStartDate,
       contentType: page.contentType,

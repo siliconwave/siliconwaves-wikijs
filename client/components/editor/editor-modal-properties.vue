@@ -92,12 +92,24 @@
               )
         v-tab-item(transition='fade-transition', reverse-transition='fade-transition')
           v-card-text
+            .overline {{$t('APPROVING STATE')}}
+            v-switch(
+              :label='$t(`Approved`)'
+              v-model='isApproved'
+              color='primary'
+              :hint='$t(`This page can only be approved by an admin.`)'
+              :disabled='!hasPermission([`manage:system`])'
+              persistent-hint
+              inset
+              )
+          v-card-text
             .overline {{$t('editor:props.publishState')}}
             v-switch(
               :label='$t(`editor:props.publishToggle`)'
               v-model='isPublished'
               color='primary'
               :hint='$t(`editor:props.publishToggleHint`)'
+              :disabled='!isApproved'
               persistent-hint
               inset
               )
@@ -276,10 +288,10 @@ export default {
       currentTab: 0,
       cm: null,
       rules: {
-          required: value => !!value || 'This field is required.',
-          path: value => {
-            return filenamePattern.test(value) || 'Invalid path. Please ensure it does not contain special characters, or begin/end in a slash or hashtag string.'
-          }
+        required: value => !!value || 'This field is required.',
+        path: value => {
+          return filenamePattern.test(value) || 'Invalid path. Please ensure it does not contain special characters, or begin/end in a slash or hashtag string.'
+        }
       }
     }
   },
@@ -295,18 +307,25 @@ export default {
     tags: sync('page/tags'),
     path: sync('page/path'),
     isPublished: sync('page/isPublished'),
+    isApproved: sync('page/isApproved'),
     publishStartDate: sync('page/publishStartDate'),
     publishEndDate: sync('page/publishEndDate'),
     scriptJs: sync('page/scriptJs'),
     scriptCss: sync('page/scriptCss'),
     hasScriptPermission: get('page/effectivePermissions@pages.script'),
     hasStylePermission: get('page/effectivePermissions@pages.style'),
-    pageSelectorMode () {
+    permissions: get('user/permissions'),
+    pageSelectorMode() {
       return (this.mode === 'create') ? 'create' : 'move'
     }
   },
   watch: {
-    value (newValue, oldValue) {
+    isApproved(newValue) {
+      if (!newValue) {
+        this.isPublished = false
+      }
+    },
+    value(newValue, oldValue) {
       if (newValue) {
         _.delay(() => {
           this.$refs.iptTitle.focus()
@@ -344,7 +363,16 @@ export default {
     }
   },
   methods: {
-    removeTag (tag) {
+    hasPermission(prm) {
+      if (_.isArray(prm)) {
+        return _.some(prm, p => {
+          return _.includes(this.permissions, p)
+        })
+      } else {
+        return _.includes(this.permissions, prm)
+      }
+    },
+    removeTag(tag) {
       this.tags = _.without(this.tags, tag)
     },
     close() {
